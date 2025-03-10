@@ -34,9 +34,16 @@ Starting architecture: You begin with the following architectural components. In
 
 Architecture with starting resources.
 
+
+![Image Description](images/Cognito-Start Architecture.png)
+
+
 Intermediate architecture: You add the following components to the architecture to implement authentication by using an Amazon Cognito user pool for protected pages.
 
  
+![Image Description](images/Cognito-Intermediate Architecture.png)
+
+
 
 Architecture showing the application integration with an Amazon Cognito user pool. More details in the lab text.
 
@@ -53,6 +60,9 @@ Step	Explanation
 Final architecture: Finally, you add additional authentication and authorization by using an Amazon Cognito identity pool to implement administrator access to the site.
 
  
+
+
+[Image Description](images/Cognito-Final Architecture.png)
 
 Architecture diagram of the web application once integrated with Amazon Cognito for authorization. 
 
