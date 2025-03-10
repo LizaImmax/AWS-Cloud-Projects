@@ -1,0 +1,57 @@
+Step 7 : Updating the application to use the identity pool for authorization
+
+
+As with the user pool, the application needs to be updated so it can interact with the identity pool. In this task, you make the necessary updates to the Birds application.
+
+First, you update the Birds web application.
+
+Return to the browser tab where the AWS Cloud9 IDE is open.
+
+In the terminal window where the node server is running, press Ctrl+C to stop the NodeJs server:
+
+Next, you update the config.js file.
+
+In the Explorer window, expand the website/scripts folder.
+
+Open the config.js file.
+
+Remove the two forward slashes (//) from the beginning of the last line of code to uncomment the code, and replace <cognito-identity-pool-id>  with the identity pool ID that you saved earlier.
+
+To save the file, choose File > Save.
+
+Next, you update the auth.js file.
+
+From the website/scripts folder, open the auth.js file.
+
+In the file, replace <cognito-user-pool-id> with the user pool ID. The placeholder is on or around line 91 in the file.
+
+  Important: Ensure that you use the user pool ID here and not the identity pool ID.
+
+AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+IdentityPoolId : CONFIG.COGNITO_IDENTITY_POOL_ID_STR,
+Logins : {
+"cognito-idp.us-east-1.amazonaws.com/<cognito-user-pool-id>": token_str_or_null
+}
+});
+  The updated code is similar to the following:
+
+AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+IdentityPoolId : CONFIG.COGNITO_IDENTITY_POOL_ID_STR,
+Logins : {
+"cognito-idp.us-east-1.amazonaws.com/us-east-1_AAAA1111": token_str_or_null
+}
+});
+  Note: This section of code uses the COGNITO_IDENTITY_POOL_ID_STR variable, which you set in the config.js file. The code uses this identifier to request credentials from the identity pool. Notice that this code block also passes the user pool ID and token_str_or_null, which holds the authentication token. The identity pool uses this information to verify the user in the user pool. If the user and token pass the validation, the identity pool sends AWS credentials back to the application.
+
+To save the file, choose File > Save.
+
+Next, you push the updated website code to the S3 bucket.
+
+In the AWS Cloud9 IDE terminal, enter the following command and replace <s3-bucket> with the name of the S3 bucket. Run your revised command.
+
+ cd /home/ec2-user/environment
+ aws s3 cp website s3://<s3-bucket>/ --recursive --cache-control "max-age=0"
+Ensure that the node server is still running. If it is not, run the following commands to start it again:
+
+  cd /home/ec2-user/environment/node_server
+  npm start

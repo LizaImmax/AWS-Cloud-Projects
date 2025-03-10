@@ -1,0 +1,41 @@
+Step 8 : Testing the identity pool integration with the application
+
+In this task, you test the updated Birds application to ensure that you can access temporary AWS credentials. With these temporary credentials, you are able to access AWS services based on the roles that were defined when you set up the identity pool. Remember that your identity pool is configured to associate authenticated users with an IAM role that allows access to a DynamoDB table.
+
+Return to the browser tab where the Birds application is open.
+
+Choose HOME, and refresh the page to ensure that your browser is using the updated code.
+
+Choose REPORT.
+
+Choose LOGIN, and log in with the admin credentials that you created in the user pool.
+
+Note: You may be already logged-in as admin user from the earlier steps.
+
+Choose REPORT again as needed.
+
+To verify that you now have access to the temporary AWS credentials that you can use to interact with a DynamoDB table, choose VALIDATE MY TEMPORARY AWS CREDENTIALS.
+
+The application now uses the identity pool to generate temporary credentials and uses the same credentials to access the BirdSightings DynamoDB table. After successfully connecting to the database table, the application attempts to count the number of rows (0) and returns the following message: Your temporary AWS credentials have been configured.. Connecting to DynamoDB Table..BirdSightings Your Dynamodb Table has 0 rows..
+
+This test verifies that you have correctly configured the Amazon Cognito identity pool and the application. Users who are logged in are able to access temporary credentials to communicate with the DynamoDB database.
+
+Note: You can access the DynamoDB table from the AWS Management Console and verify that the table has 0 rows..
+
+
+
+
+
+
+Conclusion
+Congratulations! You now have successfully done the following:
+
+Created an Amazon Cognito user pool
+
+Added users to the user pool
+
+Updated the example application to use the user pool for authentication
+
+Configured the Amazon Cognito identity pool
+
+Updated the example application to use the identity pool for authorization

@@ -1,0 +1,27 @@
+Step 6:  Configuring the identity pool
+
+The Amazon Cognito identity pool was created for you when you launched the lab environment. In this task, you configure the Amazon Cognito identity pool to work with the Birds application.
+
+On the Amazon Cognito console, in the navigation pane on the left, choose Identity pools.
+
+Choose the bird_app_id_pool link.
+
+Copy and paste the Identity pool ID into your text editor as the Identity pool ID for use later.
+
+From the lower pane, choose the User access tab.
+
+Choose Add identity provider.
+
+Choose Amazon Cognito user pool.
+
+For User pool ID, choose the user pool with the name bird_app.
+
+For App client ID, choose the application with the name bird_app_client.
+
+In the Role settings section, notice that Default authenticated role is displayed.
+
+Choose Save changes.
+
+Review the Authenticated access section.
+
+Notice that the Authenticated role has been configured to use the default role, which is assigned to users when they successfully log in. You could set up additional rules to assign different AWS Identity and Access Management (IAM) roles to different users. For this phase of application development, you only keep one role assigned to the users

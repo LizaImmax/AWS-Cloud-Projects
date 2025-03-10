@@ -1,0 +1,55 @@
+Step 5 :Testing the user pool integration with the application
+
+
+
+In this task, you test the updated application. First, you restart the node server so that it uses the updated configuration.
+
+To start the node server, run the following command at the prompt:
+
+npm start
+Return to the browser tab with the Birds application, and refresh the page.
+
+Choose SIGHTINGS.
+
+This time, the list of bird sightings from the students in the class is not displayed.
+
+The bird sightings are not displayed because the application is now integrated with Amazon Cognito and requires authentication!.
+
+Note: If you get and error related to jwt, start a new browser tab or window.
+
+Choose LOGIN.
+
+On the prompt, provide the credentials for testuser.
+
+Note: You may be prompted to change password.
+
+After successfully logging in, the birds listing is displayed.
+
+Note: If you are redirected to the Home page, navigate to the SIGHTINGS page again.
+
+This test proves that only a user who has been authenticated by the Amazon Cognito user pool can access the protected pages of the application. The user pool centrally stores your application usernames and passwords, which makes your users and their authentication information more secure and convenient to manage. 
+
+Choose SITEADMIN.
+
+You see a message stating that you need to log in as an administrator to access the administration page.
+
+If you see the message You need Admin credentials to see Admin page, choose DISMISS.
+
+On the SITEADMIN page, choose ADMIN LOGIN.
+
+On the login prompt, choose Sign in as a different user?
+
+Use the admin login credentials to log in.
+
+Note: You may be prompted to change password.
+
+After successfully logging in, navigate to SITEADMIN page. The message Admin page under construction is displayed.
+
+This test proves that the Amazon Cognito user pool can manage role-based access control to your application and provide secure access to the protected pages of the application based on the role. 
+
+
+
+
+
+
+

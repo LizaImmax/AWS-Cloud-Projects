@@ -1,0 +1,43 @@
+Task 2: Reviewing the Birds website
+
+In this task, you explore the Birds web application to understand how it behaves before you enable user authentication.
+
+In a new browser tab, enter the CloudFront distribution domain that you copied into your text file.
+
+The Birds web application opens. The home page includes a welcome message to students.
+
+Birds website home page.
+
+
+
+
+
+
+Navigate to the BIRDS page to see pictures of birds.
+
+For additional information, choose one of the bird pictures.
+
+Note: These pages with bird descriptions are not protected. Anyone can get to this content.
+
+To return to the previous page, choose BACK.
+
+Note: You might need to scroll down to locate the BACK button.
+
+Choose SIGHTINGS.
+
+
+
+
+
+Note: This page requires users to log in before they can see the content.
+
+To try the login functionality, choose LOGIN.
+
+A message indicates that you do not have access. This message appears because the identity provider, an Amazon Cognito user pool, still needs to be set up for the application.
+
+Choose Dissmiss.
+
+
+
+
+Close the browser tab where the Birds web application is running. Keep the AWS Cloud9 IDE browser tab open, and let the node server run.

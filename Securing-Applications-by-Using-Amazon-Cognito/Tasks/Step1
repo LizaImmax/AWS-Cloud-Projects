@@ -1,0 +1,88 @@
+Task 1: Preparing the lab environment
+
+ Before you can work on this lab, you need to download files and run some scripts in the AWS Cloud9 integrated development environment (IDE) that was prepared for you.
+
+To connect to the AWS Cloud9 IDE, from the top of these instructions, choose AWS Details.
+
+Copy the value for Cloud9url, and paste it into a new browser tab to open the AWS Cloud9 IDE.
+
+In a text editor of your choice (outside the AWS Cloud9 IDE), copy and paste the following text. As you work through the lab, you use this file to store information that you need in later steps:
+
+S3 bucket: 
+CloudFront distribution domain: 
+User pool ID: 
+App client ID: 
+Amazon Cognito domain prefix: 
+Identity pool ID: 
+In the AWS Cloud9 IDE, in the terminal window in the bottom pane, at the voclabs:~/environment $ prompt, run the following commands to retrieve the code and install the Birds application that you use in this lab:
+
+wget https://aws-tc-largeobjects.s3.us-west-2.amazonaws.com/CUR-TF-200-ACACAD-3-113230/10-lab-mod9-guided-Cognito/code.zip
+unzip code.zip
+cd resources
+. ./setup.sh
+
+Note: After pasting the commands into the terminal, press Enter to ensure that all of the commands run.
+
+
+
+
+
+After the setup.sh script completes, you see the last four lines of output that are similar to the following:
+
+...
+# The S3 bucket name is: 
+"c42885a571457l1365962t1w991727102856-s3bucket-1s4xxypc1ttq8"
+# The CloudFront distribution domain is: 
+"drhx6krwefmhd.cloudfront.net"
+From this output, copy and paste the following values into your text file. You need these values in later steps:
+
+Record the S3 bucket name. The value is similar to the following: c1234567890abcdefghi-s3bucket-123456abcd3
+
+Record the CloudFront distribution domain name. The value is similar to the following: d123456acbdef.cloudfront.net
+
+Next, you update the web application code to point to the node server's API endpoint.
+
+In the AWS Cloud 9 IDE, in the explorer window to the left of the terminal, expand the website/scripts folder.
+
+Open the config.js file.
+
+In the file, replace <cloudfront-domain> with the CloudFront distribution domain that you recorded into your text editor.
+
+  The updated line should be similar to the following:
+
+CONFIG.BASE_NODE_SERVER_STR = "https://d123456acbdef.cloudfront.net";
+To save the file, choose File > Save.
+
+To close the file, on the tab with the file, choose X.
+
+Because you are using an S3 bucket to host the website, you need to upload the application files to the S3 bucket:
+
+In the following command, replace <s3-bucket> with the name of the S3 bucket that you recorded into your text editor, and run the updated command in the AWS Cloud9 terminal:
+
+cd /home/ec2-user/environment
+aws s3 cp website s3://<s3-bucket>/ --recursive --cache-control "max-   age=0"
+Because you also use the NodeJs server as part of application, you need to start the node server.
+
+To start the node server, run the following commands:
+
+cd /home/ec2-user/environment/node_server
+npm start
+   After the node server starts, you see the following output in the terminal:
+
+> start
+> REGION_STR=us-east-1 node index.js
+ 
+Live on port: 8080
+ Note: Leave the server running in this terminal window.
+
+As part of the setup script that you ran earlier, the CloudFront distribution is being created. This distribution is used to securely deliver the contents hosted on the S3 bucket. 
+
+Next, you check the status of the CloudFront distribution.
+
+On the AWS Management Console, in the search box, enter and choose CloudFront to open the CloudFront console.
+
+In the Distributions list, locate the Status column of the distribution, and wait or proceed to the next task based on the status:
+
+If the status is Deploying, wait until the status is Enabled, and then proceed to the next task.
+
+If the status is Enabled, continue to the next task.
