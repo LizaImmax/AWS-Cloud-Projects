@@ -1,4 +1,8 @@
 Lab Overview and Objectives
+
+
+
+
 While building web applications, I often find that user authentication and authorization can be quite challenging. However, Amazon Cognito simplifies this process by providing a robust solution for adding sign-up, sign-in, and enhanced security functionality.
 
 In this lab, I will configure an Amazon Cognito user pool, which I will use to manage users and their access to an existing web application. Additionally, I will create an Amazon Cognito identity pool to authorize users when the application makes calls to Amazon DynamoDB.
