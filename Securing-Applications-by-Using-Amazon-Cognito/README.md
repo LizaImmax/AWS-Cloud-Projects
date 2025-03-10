@@ -35,16 +35,12 @@ Starting architecture: You begin with the following architectural components. In
 Architecture with starting resources.
 
 
-![Cognito Start Architecture](Securing-Applications-by-Using-Amazon-Cognito/images/Cognito-Start%20Architecture.png)
 
-![Cognito Intermediate Architecture](Securing-Applications-by-Using-Amazon-Cognito/images/Cognito-Intermediate%20Architecture.png)
 
 
 
 Intermediate architecture: You add the following components to the architecture to implement authentication by using an Amazon Cognito user pool for protected pages.
 
- 
-![Image Description](images/Cognito-Intermediate Architecture.png)
 
 
 
