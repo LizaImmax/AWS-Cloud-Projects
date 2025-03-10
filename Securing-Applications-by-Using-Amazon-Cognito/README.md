@@ -30,18 +30,12 @@ A static website hosted in Amazon S3.
 The app tracks bird sightings and contains protected pages.
 
 
-
-
-![Initial Architecture](https://github.com/LizaImmax/AWS-Cloud-Projects/blob/main/Securing-Applications-by-Using-Amazon-Cognito/images/Cognito-Start%20Architecture.png)
-
 Adding Authentication with Cognito User Pool
 Users sign in via Amazon Cognito’s managed UI.
 Cognito validates credentials and returns an access token.
 The app verifies the token before allowing access to protected pages.
 
 
-
-![Intermediate Architecture](https://github.com/LizaImmax/AWS-Cloud-Projects/blob/main/Securing-Applications-by-Using-Amazon-Cognito/images/Cognito-Intermediate%20Architecture.png)
 
 
 
