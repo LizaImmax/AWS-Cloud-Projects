@@ -1,4 +1,9 @@
 Task 4: Updating the application to use the user pool for authentication
+
+
+
+
+
 So far, you have created the Amazon Cognito user pool, configured it with information about the web application, and created a user. However, the Birds application isn't set up with authentication yet because the application doesn't know about Amazon Cognito.
 
 In this task, you update the application to provide the information it requires to interact with Amazon Cognito. This information includes the user pool ID, application client ID, and Amazon Cognito domain prefix. 
