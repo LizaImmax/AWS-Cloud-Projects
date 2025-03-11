@@ -1,0 +1,8 @@
+Step 5: Analyzing AWS KMS activity by using CloudTrail
+
+
+
+
+In this task, I access the CloudTrail event history to review events related to my encryption operations and monitor the usage of AWS KMS keys for security purposes. First, I navigate to the CloudTrail console and open the Event history section. I filter the event history to show only events reported by the AWS KMS service by selecting "Event source" and entering "kms.amazonaws.com." This allows me to focus on the specific events related to AWS KMS activities.
+Next, I analyze key CloudTrail events such as the CreateGrant, Decrypt, and GenerateDataKeyWithoutPlaintext events. The CreateGrant event shows when the EC2 instance requests permission to use the AWS KMS key for cryptographic operations, such as decrypting a data key. The Decrypt event follows, showing the use of the KMS key to decrypt the encrypted data. I also review other events, like GenerateDataKeyWithoutPlaintext, which logs the generation of a key for encrypting EBS volume data. By evaluating these logs, I gain insights into how the AWS KMS keys were used in encryption tasks, and if needed, I can create a CloudTrail trail to monitor events beyond the 90-day retention period.
+

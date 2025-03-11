@@ -1,0 +1,6 @@
+Step 6: Reviewing key rotation
+
+
+In this step, I review the process of enabling automatic key rotation for a KMS key I created. AWS KMS supports automatic rotation for symmetric encryption keys created by AWS KMS, and this feature is optional for customer-managed keys. To enable it, I navigate to the AWS KMS console, select the customer-managed key I created, and go to the Key rotation section. There, I select the option to automatically rotate the key every year and save the changes.
+Although the rotation will take effect after a year, the system confirms that the key is now scheduled for rotation with a message indicating that the key rotation has been updated. This ensures that the key will automatically rotate annually as per the settings.
+

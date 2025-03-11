@@ -1,0 +1,6 @@
+Step 4: Disabling the encryption key and observing the effects
+
+
+In this task, I first disable the AWS KMS key that was used to encrypt the EBS volume by navigating to the AWS KMS console, selecting the key, and confirming its disablement. After disabling the key, I detach the encrypted EBS volume from the EC2 instance. This step is necessary because the encrypted data key used for encryption and decryption is stored in memory, and once the key is disablied, it is no longer accessible. When I attempt to reattach the volume to the EC2 instance, the operation fails because the disabled KMS key prevents the decryption of the volume's encrypted data.
+
+Next, I examine the CloudTrail event history to review the events triggered by my actions. In the CloudTrail console, I look at the DisableKey and AttachVolume events. The DisableKey event logs the action of disabling the KMS key, and the AttachVolume event shows that the volume attachment failed because AWS KMS could not provide the plaintext data key to decrypt the volume. Finally, I re-enable the KMS key, and the volume is successfully reattached to the EC2 instance, as the key is now active and allows the data to be decrypted.
