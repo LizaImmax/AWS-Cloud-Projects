@@ -45,13 +45,26 @@ Architecture
 
 Initial Setup
 📌 Before starting, my environment includes an S3 bucket and an EC2 instance.
-(Insert Image 1 here)
+
+
+
+![Initial Architecture](https://github.com/LizaImmax/AWS-Cloud-Projects/blob/main/Encrypting_Data_at_Rest_Using_AWS_Encryption_options/images/Starting-arc.png)
+
+
+
 
 Final Architecture
 📌 By the end, my EC2 instance will use an encrypted EBS volume, AWS KMS for key management, and CloudTrail for monitoring key access.
-(Insert Image 2 here)
+
+
+
+![Final Architecture](https://github.com/LizaImmax/AWS-Cloud-Projects/blob/main/Encrypting_Data_at_Rest_Using_AWS_Encryption_options/images/Final-Arc.png)
+
+
 
 Steps
+
+
 🔹 Step 1: Attach an encrypted EBS volume to my EC2 instance. The instance receives an encrypted data key from the volume.
 
 🔹 Step 2: The EC2 instance sends a request to AWS KMS to decrypt the encrypted data key.
@@ -60,7 +73,13 @@ Steps
 
 🔹 Step 4: My EC2 instance stores the key in memory and uses it for encryption and decryption.
 
+
+
+
+
 Conclusion
+
+
 By completing this project, I have successfully implemented encryption at rest using AWS services. I now understand how AWS KMS integrates with EC2 and S3, how encryption keys work, and how CloudTrail logs encryption activity for auditing.
 
 
