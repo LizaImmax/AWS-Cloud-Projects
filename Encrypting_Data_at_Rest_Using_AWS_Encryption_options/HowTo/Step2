@@ -1,0 +1,1 @@
+I created a customer-managed AWS KMS key to encrypt and decrypt data securely. This key will be used to generate and manage encryption keys for securing data at rest. I assigned administrative and usage permissions to my role, ensuring controlled access to the encryption key. This setup allows me to encrypt and decrypt sensitive data while maintaining security and compliance.

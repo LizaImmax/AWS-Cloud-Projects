@@ -1,0 +1,6 @@
+Step 3: Creating and Attaching an Encrypted EBS Volume
+
+
+
+
+I created an encrypted Amazon EBS volume using the KMS key from Step 2 and attached it to my EC2 instance. When the volume was attached, the EC2 instance retrieved the encrypted data key from AWS KMS and used it to decrypt stored data. I verified that the root volume remained unencrypted, while the newly created data volume was securely encrypted with the KMS key. This ensures that my stored data is protected and accessible only with proper permissions.
