@@ -28,3 +28,6 @@ Test the application for high availability.
 
 
 At the end of this lab, the architecture will look like the following example:
+
+
+![Alt text](https://github.com/LizaImmax/AWS-Cloud-Projects/blob/main/Creating-a-Highly-Available-Environment/images/module-10-guided-lab-architecture.png)
