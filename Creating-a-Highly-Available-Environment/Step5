@@ -1,0 +1,10 @@
+Task 5: Testing the application
+
+
+I confirm that the web application is running and test its high availability. I start by checking the health status of the two EC2 instances registered with the load balancer by navigating to the Target Groups section. I ensure both instances show a healthy status after the load balancer health check is performed. If the status doesn't change, I will seek help for troubleshooting the configuration.
+
+
+
+
+Next, I test the application's functionality by connecting to the load balancer's DNS name, which forwards the request to one of the EC2 instances. By reloading the webpage, I can verify the load balancer's ability to distribute traffic between instances, as the instance ID and Availability Zone should toggle between the two instances. This confirms that the application is highly available and correctly configured for load balancing and fault tolerance.
+

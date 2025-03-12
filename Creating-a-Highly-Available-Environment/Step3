@@ -1,0 +1,13 @@
+Task 3: Creating an Auto Scaling group
+
+
+
+I create an Amazon Machine Image (AMI) of the Web Server 1 instance to capture its configuration, including the operating system and software. This AMI will be used later to launch new instances with the same configuration, ensuring consistency when scaling the application. I first confirm that the Web Server 1 instance is running, and then create the image by selecting the instance and providing a name and description for the AMI.
+
+
+I proceed to create a launch template using the newly created AMI. The launch template defines the configuration for the instances, including the AMI, instance type, key pair, security group, and more. I also specify a user data script to install necessary software like Apache Web Server, PHP, and the AWS SDK for PHP, as well as download the required application files. The template will be used to launch instances in the Auto Scaling group.
+
+
+
+Next, I create an Auto Scaling group using the launch template. This group defines where the instances should be launched and ensures that the number of instances remains consistent (2 in this case) across multiple Availability Zones for high availability. I also configure the Auto Scaling group to attach to the Inventory-App load balancer, perform health checks, and collect metrics for scaling. The group automatically maintains the desired capacity, even if instances fail, ensuring that two instances are always running to support the application
+

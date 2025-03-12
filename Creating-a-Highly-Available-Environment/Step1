@@ -1,0 +1,7 @@
+
+Step 1: Inspecting my VPC
+
+
+I begin by inspecting the lab environment deployed via AWS CloudFormation, which includes a VPC, public and private subnets, an internet gateway, a NAT gateway, and an Amazon RDS instance. I access the Lab VPC in the AWS Management Console, starting with the IPv4 CIDR block (10.0.0.0/16), which defines the IP range for the VPC. I also review the details of Public Subnet 1, including its IPv4 CIDR block (10.0.0.0/24), Availability Zone, and routing configuration. The Route Table tab shows how traffic is routed within the VPC and to the internet, confirming that the subnet is a public subnet due to the route to the internet gateway.
+
+Next, I examine the Network ACL settings, which permit unrestricted traffic by default, and the Security Groups section, where the Inventory-DB security group controls inbound traffic to the database. The security group allows MySQL or Aurora traffic (port 3306) from the entire VPC, though I plan to restrict this to application servers later. Finally, I verify that the Lab IG internet gateway is attached to the VPC. This step ensures I have a solid understanding of the VPC setup, which will be essential for configuring the architecture for high availability in the next steps.

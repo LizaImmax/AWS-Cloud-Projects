@@ -1,0 +1,14 @@
+Task 4: Updating security groups
+
+
+I am securing a three-tier architecture by configuring security groups for the load balancer, application servers, and database to ensure proper traffic flow and protection between each tier.
+
+
+
+First, I confirm that the load balancer's security group is already set to accept all incoming HTTP and HTTPS traffic. This is necessary because the load balancer forwards these requests to the application servers, and new instances launched by Auto Scaling will automatically be added to the load balancer's target group.
+
+
+
+Next, I configure the application security group to accept only incoming HTTP traffic from the load balancer. This limits exposure to only trusted sources and offloads HTTPS handling to the load balancer, reducing the workload on the application servers. Finally, I update the database security group to only accept traffic from the application servers, ensuring that the database is only accessible from within the application tier and enhancing overall security.
+
+

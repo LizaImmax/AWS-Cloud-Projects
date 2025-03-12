@@ -1,0 +1,9 @@
+Task 6: Testing high availability
+
+
+I test the high availability of the application by terminating one of the EC2 instances to simulate a failure. After terminating the instance, the load balancer detects the failure through health checks and automatically reroutes all traffic to the remaining instance. When I reload the web page, I observe that the Availability Zone remains the same, indicating that the application continues running without interruption despite the failure of one instance.
+
+
+
+The task also demonstrates the Auto Scaling feature, as Amazon EC2 Auto Scaling detects the instance failure and automatically launches a replacement instance to maintain two running instances. After a few minutes, the health check for the new instance becomes healthy, and the load balancer resumes distributing traffic between the two instances across different Availability Zones. This process confirms the application's high availability and fault tolerance.
+

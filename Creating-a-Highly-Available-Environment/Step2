@@ -1,0 +1,9 @@
+Step 2: Creating an Application Load Balancer
+
+
+
+The goal is to create an Application Load Balancer (ALB) to distribute traffic across multiple application servers for a highly available application. To begin, I access the Amazon EC2 console and create a new load balancer, selecting the Application Load Balancer option. I provide a name for the load balancer (Inventory-LB) and configure the network settings by selecting the Lab VPC and two public subnets across different Availability Zones. This setup ensures that the load balancer is distributed and can handle traffic across multiple zones for higher availability.
+
+
+I then proceed to configure a security group to enable web access to the load balancer. After creating the security group, I assign it to the load balancer. In the Listeners and routing section, I create a target group named Inventory-App, which will handle incoming requests and send them to the appropriate instances. I configure the target group’s health check settings, making it perform health checks every 10 seconds and marking instances as healthy after two successful checks. Since there are no web application instances yet, I skip the registration of targets and review the settings. Once completed, I create the load balancer, which is now ready to route traffic and ensure high availability for the application.
+
