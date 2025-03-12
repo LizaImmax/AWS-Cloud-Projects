@@ -1,0 +1,4 @@
+Bonus Step 1: Making the database highly available
+
+
+I enhance the database's high availability by configuring Amazon RDS for a Multi-AZ deployment. This setup creates a standby database instance in a different Availability Zone, ensuring automatic failover if the primary instance fails. The application continues using the same database endpoint, with connections automatically redirected to the active instance. Additionally, I scale up the database by increasing its instance size and storage capacity to improve performance. These modifications are applied immediately, reinforcing the system's reliability and resilience.

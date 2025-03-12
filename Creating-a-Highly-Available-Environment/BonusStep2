@@ -1,0 +1,7 @@
+Bonus Step 2: Configuring a highly available NAT gateway
+
+
+I improve the application's resilience by making the NAT gateway highly available. Since the application servers run in private subnets, they require a NAT gateway in a public subnet to access the internet. Previously, there was only one NAT gateway, creating a single point of failure. To address this, I deploy a second NAT gateway in another Availability Zone and configure a new route table to direct internet-bound traffic from the corresponding private subnet. This ensures that even if one Availability Zone fails, the servers in the other zone can still access the internet, enhancing the system’s fault tolerance.
+
+
+
