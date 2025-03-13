@@ -1,0 +1,4 @@
+Step 5: Creating a load balancer
+
+I will create an HTTP Application Load Balancer to distribute traffic across the web application server instances deployed in private subnets. The load balancer will be configured with a name, the VPC used for the lab, and two public subnets. A new security group will be created to allow HTTP traffic from anywhere, and a target group will be set up to direct traffic to the web server instances. Once the load balancer is active, I will modify the Auto Scaling group to associate the new load balancer with the group, ensuring that incoming traffic is properly distributed across the EC2 instances. This setup enables the web application to handle high traffic efficiently, providing high availability and load balancing for incoming requests.
+

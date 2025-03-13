@@ -1,0 +1,4 @@
+Task 4: Creating an Auto Scaling group
+
+I will create an Auto Scaling group using the launch template from the previous task to automatically scale the EC2 instances based on CPU utilization. The Auto Scaling group will be configured with a desired capacity of 2 instances, a minimum capacity of 2, and a maximum capacity of 6 to handle varying traffic loads. Additionally, I will set the scaling policy to trigger auto scaling events when the average CPU utilization reaches 25%. The instances will be deployed across Private Subnet 1 and Private Subnet 2 within the configured VPC. This setup ensures that the infrastructure can scale up or down dynamically based on demand, providing the flexibility needed to handle traffic fluctuations while maintaining cost efficiency.
+

@@ -1,0 +1,5 @@
+Step 2: Updating a network to work across multiple Availability Zones
+
+
+I will update the network to span multiple Availability Zones to ensure high availability. This begins with creating a NAT gateway in the Public Subnet of the second Availability Zone. The NAT gateway allows EC2 instances in the Private Subnet to access the internet without having public IP addresses. After creating the NAT gateway, I will configure the network to route internet-bound traffic from instances in the Private Subnet to the NAT gateway. This step is essential for enabling secure and reliable internet access for instances in the second Availability Zone, contributing to a more resilient and scalable architecture.
+

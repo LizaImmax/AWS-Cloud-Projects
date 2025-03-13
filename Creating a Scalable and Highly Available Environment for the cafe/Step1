@@ -1,0 +1,5 @@
+Step 1: Inspecting your environment
+
+
+I will evaluate the current lab environment by inspecting the network setup, starting with the Amazon Virtual Private Cloud (VPC) console. This involves reviewing the existing network configuration, including subnets, routing tables, and security settings, to ensure it’s ready for scaling and high availability. The goal is to identify any necessary adjustments to support multiple Availability Zones (AZs) and prepare the environment for handling increased traffic effectively. This step is crucial for ensuring that the infrastructure can scale and remain resilient under high demand.
+

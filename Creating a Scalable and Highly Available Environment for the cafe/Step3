@@ -1,0 +1,5 @@
+Step 3: Creating a launch template
+
+
+I will create a launch template using the Cafe WebServer Image AMI, which was previously created from the Café’s web application server instance. The launch template will define key configurations such as the instance type (t2.micro), security group (CafeSG), key pair, resource tags, and IAM instance profile (CafeRole). This ensures that EC2 instances launched for the web application servers have consistent settings, making it easier to deploy and scale instances as needed. The launch template simplifies the process of provisioning new instances and ensures uniformity across the infrastructure
+
