@@ -1,0 +1,11 @@
+New business requirement: Storing templates in a version control system (challenge 2)
+
+
+Task 3: Cloning a CodeCommit repository that contains CloudFormation templates
+
+
+I am cloning a CodeCommit repository that contains CloudFormation templates to manage and version control infrastructure as code (IaC) templates. The café team has decided to expand their use of CloudFormation to build application resources in their AWS account and store these templates in a version control system, which is a best practice. To achieve this, I am using AWS CodeCommit, a source control service similar to GitHub, to store and control versions of the CloudFormation templates. The repository contains templates for creating resources like Cloud9 instances and CodeCommit repositories, which are essential for the café team's infrastructure setup.
+
+
+The objective is to clone the CFTemplatesRepo repository from AWS CodeCommit to an AWS Cloud9 workspace using Git. This allows me to manage the IaC templates locally and track changes over time. By cloning the repository and analyzing the templates, I ensure that I have access to a version-controlled copy of the infrastructure templates for future modifications or updates. This step is vital for maintaining consistency, tracking changes, and collaborating effectively on infrastructure projects.
+

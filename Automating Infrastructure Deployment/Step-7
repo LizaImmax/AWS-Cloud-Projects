@@ -1,0 +1,8 @@
+Step 7: Duplicating the café network and website to another AWS Region
+
+
+The goal is to duplicate the café network and website to a different AWS Region, showcasing the power of CloudFormation for quickly replicating deployments. Using the AWS CLI, the café network resources are copied to the us-west-2 region with the aws cloudformation create-stack command. Once the stack is created, you verify the network resources in the VPC console. Afterward, a new EC2 key pair is created for use in the new region, and the application template is reviewed to ensure the correct key pair and instance settings for this region. The updated template is then copied to an S3 bucket and used to create a new stack in the US West (Oregon) region, using the CloudFormation console.
+
+
+Following the creation of the new stack, the web server in the us-west-2 region is launched with an EC2 instance of type t3.micro, and the website is accessed using its public IP address. By leveraging the same CloudFormation template without modification, the deployment in the new region mirrors the one in the us-east-1 region, with different parameters like the key pair and instance type. The successful replication of the network and website demonstrates the ease of deploying resources in multiple regions with CloudFormation.
+

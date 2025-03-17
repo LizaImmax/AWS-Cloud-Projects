@@ -1,0 +1,5 @@
+Step 5: Updating the network stack
+I updated the cafe-network.yaml CloudFormation template by adding an Outputs section at the bottom. This section defines two outputs: the PublicSubnet and the VpcId, which provide the subnet ID for public web servers and the VPC ID, respectively. These outputs are marked for export, allowing them to be referenced later by the application stack. After updating the template, I committed the changes in the Cloud9 IDE and pushed them to the CodeCommit repository using Git.
+
+Once the changes were pushed, I verified that the CloudFormation stack update was triggered and completed successfully. I checked the Outputs tab in the CloudFormation console, confirming that two keys with export names, PublicSubnet and VpcId, were displayed. These export names are now available for use in subsequent stacks, allowing for easier integration between the network and application layers.
+

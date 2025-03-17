@@ -1,0 +1,6 @@
+Task 1: Creating a CloudFormation template from scratch
+
+
+In this process, we begin by creating a CloudFormation template (S3.yaml) to define the resources needed for the café's static website, starting with an S3 bucket. CloudFormation allows us to describe AWS resources in a declarative way using templates, ensuring that we can easily replicate the infrastructure in the future. Once the template is written, we use the AWS CLI to create a CloudFormation stack, which triggers the creation of the S3 bucket defined in the template. This approach automates the resource deployment, eliminating the need for manual intervention and providing a more efficient and scalable solution.
+
+The reason we’re using CloudFormation is to automate and standardize the deployment process, ensuring that resources are created in a consistent manner each time. By leveraging infrastructure as code, we not only reduce the risk of human error but also make it easier to manage and maintain resources across different AWS regions or environments. This process ensures that the café’s infrastructure remains consistent and scalable as it expands, while also enabling the ability to update resources efficiently as business needs evolve.

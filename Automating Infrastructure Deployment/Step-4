@@ -1,0 +1,24 @@
+Step 4: Creating a new network layer with CloudFormation, CodeCommit, and CodePipeline
+After finalizing the template, I pushed the file to the CodeCommit repository, which triggered the preconfigured CodePipeline to deploy the CloudFormation stack.
+
+ 
+
+ The pipeline was set up to automatically deploy the network resources defined in the template. At first, I looked like this
+ 
+
+After it looked like this 
+ 
+The pipeline successfully deployed the network resources.
+Once the deployment was successful, I checked the AWS management consoles to confirm the resources were properly created.
+
+
+
+
+
+ 
+
+The VPC and the Subnet were successfully created as well. 
+ 
+
+This marks the successful completion of this network setup.
+

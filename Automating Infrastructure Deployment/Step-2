@@ -1,0 +1,4 @@
+Task 2: Configuring the bucket as a website and updating the stack
+
+To configure the S3 bucket for static website hosting and update the CloudFormation stack, I first download and extract the website files, set ownership controls, and adjust public access settings. Then, I upload the static website assets to the bucket using AWS CLI commands. Next, I modify the S3.yaml template to retain the bucket upon deletion and enable static website hosting with index.html as the default document. I validate the template and update the CloudFormation stack. After confirming the update is successful in the AWS Management Console, I verify that the website URL is listed in the stack’s Outputs tab. If any issues arise, I troubleshoot by checking the S3 bucket's permissions, file structure, and static website hosting settings before making necessary adjustments and re-running the update command.
+
