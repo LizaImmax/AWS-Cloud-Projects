@@ -1,0 +1,6 @@
+Step 4: Exploring templates with AWS CloudFormation Designer
+
+I explored AWS CloudFormation Designer, a graphical tool for creating, viewing, and modifying CloudFormation templates. It provides a drag-and-drop interface that allows me to visually design and edit templates by seeing how the resources are interrelated. To get started, I opened the lab-application2.yaml template in Designer. The tool displayed a graphical representation of the template, showing how the resources and their relationships were structured.
+
+I experimented with the Designer by selecting displayed resources to view the corresponding template definitions in the lower pane. I also tried dragging new resources from the Resource types pane into the design area, which automatically updated the template. Additionally, I explored the lab-network.yaml template to see its resources in Designer. This task helped me better understand how to visually manage and modify CloudFormation templates, making it easier to design infrastructure.
+

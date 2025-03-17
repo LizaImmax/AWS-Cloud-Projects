@@ -1,0 +1,9 @@
+
+Step 1: Deploying a networking layer
+
+
+I focused on deploying the networking layer as the foundation of my infrastructure in AWS. Following best practices, I set up my infrastructure in layers, starting with the network (Amazon VPC), which will later support the database and application layers. This layered approach allows me to reuse templates across different environments like development, testing, and production. To implement this, I downloaded the lab-network.yaml CloudFormation template and reviewed it in a text editor to understand how the networking resources were defined. Then, I accessed AWS CloudFormation through the AWS Management Console, created a new stack, uploaded the template file, and specified the stack name as lab-network before proceeding with the deployment.
+
+Once the stack creation process started, I monitored the deployment in the Stack info tab until the status changed to CREATE_COMPLETE. In the Resources tab, I confirmed that my VPC and public subnet were successfully created. I also checked the Events tab to review the sequence of activities performed by AWS CloudFormation and ensure there were no errors. In the Outputs tab, I found the IDs of my newly created VPC and public subnet, which I can use in the next steps of my project to build other infrastructure components inside this VPC. Finally, I reviewed the Template tab to reinforce my understanding of how the template defined my network resources and their relationships. This step helped me establish a solid networking foundation for my project using Infrastructure as Code (IaC).
+
+

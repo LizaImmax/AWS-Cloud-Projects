@@ -1,0 +1,5 @@
+Step 5: Deleting the stack
+I learned how to delete a CloudFormation stack and manage resources that are no longer needed. When deleting a stack, AWS CloudFormation can retain certain resources based on the deletion policy. In this case, the lab-application stack was configured with a DeletionPolicy: Snapshot for an Amazon Elastic Block Store (EBS) disk volume, meaning a snapshot of the volume would be created before the volume was deleted.
+
+I deleted the lab-application stack and monitored the process through the Events tab. While the stack was deleted, the network stack remained intact, demonstrating how different teams can manage their own stacks. After the deletion, I verified that the EBS volume's snapshot had been successfully created by checking the Snapshots section in Amazon EC2. I saw a snapshot labeled "Web Data," confirming that the snapshot process worked as intended.
+

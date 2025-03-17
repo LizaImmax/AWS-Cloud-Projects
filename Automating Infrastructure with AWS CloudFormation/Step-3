@@ -1,0 +1,9 @@
+Step 3: Updating a Stack
+In step 3, I updated the lab-application stack using AWS CloudFormation to modify the security group settings. First, I reviewed the current inbound rules for the security group in the EC2 console, confirming that only HTTP traffic was allowed.
+
+Next, I downloaded the updated CloudFormation template (lab-application2.yaml), which included a new rule to allow HTTPS traffic on port 443. Returning to CloudFormation, I selected lab-application, chose Update, and replaced the existing template with the new file. After reviewing the Change Set Preview, which confirmed that only the security group would be modified (without replacement), I submitted the update.
+
+Once the stack reached UPDATE_COMPLETE, I verified the change by checking the Inbound rules in the EC2 Security Groups list. The new rule allowing HTTPS (TCP port 443) was successfully added.
+
+This step demonstrated how AWS CloudFormation enables repeatable, version-controlled infrastructure updates with minimal manual intervention. By storing templates in a source code repository like AWS CodeCommit, I can maintain a history of changes, making infrastructure updates efficient and trackable.
+

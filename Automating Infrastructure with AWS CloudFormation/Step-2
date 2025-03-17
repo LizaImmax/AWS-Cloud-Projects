@@ -1,0 +1,8 @@
+Step 2: Deploying an application layer
+
+
+I deployed the application layer, which includes an Amazon EC2 instance and a security group. This layer builds on the networking layer I created earlier by using CloudFormation to import the VPC and subnet IDs from the lab-network stack. To start, I downloaded the lab-application.yaml template and reviewed its structure before uploading it to AWS CloudFormation. I then created a new stack, named lab-application, and specified lab-network as the Network Stack Name so the template could retrieve the necessary network details. After adding tags to help identify resources, I submitted the stack for creation and monitored its progress in the Events and Resources tabs.
+
+
+Once the stack reached CREATE_COMPLETE, I accessed the Outputs tab, where a URL was provided. Opening the URL in a browser confirmed that the application was successfully running on the EC2 instance created by the stack. The CloudFormation template efficiently reused outputs from the lab-network stack, ensuring that the EC2 instance was launched within the correct public subnet and assigned to the appropriate security group inside the VPC. This step demonstrated how Infrastructure as Code (IaC) enables modular, reusable deployments, making it easier to manage and scale resources efficiently.
+
