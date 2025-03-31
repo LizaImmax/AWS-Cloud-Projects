@@ -1,0 +1,22 @@
+Phase 1: Building a Tightly Coupled Image Processing Application
+
+
+Step 1: Install and Set Up the Application
+
+Set up an AWS Cloud9 environment and install a Node.js-based image processing application. This includes downloading required files, configuring Cloud9 settings, and installing dependencies for both the web server and application server.
+
+Step 2: Configure Security and Permissions
+
+Set up a security group in EC2 to allow application communication on necessary ports (8000-8100). Assign the correct IAM role to the instance and adjust S3 bucket permissions, allowing secure access while restricting it to specific IPs.
+
+
+Step 3: Configure and Launch the Application
+
+Modify configuration files for the browser, web server, and application server to point to the correct EC2 instance and S3 bucket. Finally, start the web and application servers in AWS Cloud9, making the application ready for testing.
+
+
+Step 4: Test the Application
+
+Access the Image Tinter application using the public IPv4 address of the Phase 1 EC2 instance. Upload an image for processing and verify the results. Ensure that processed images appear correctly, and test deletion functionality. This completes Phase 1 of the application build.
+
+

@@ -1,0 +1,42 @@
+Phase 2: Building the Application with a Decoupled Architecture
+
+In this phase, I will build a new version of my application using a decoupled architecture. This improves the application's availability, scalability, and performance, especially in high-volume scenarios. The decoupling is achieved by integrating AWS services like Amazon SQS, Amazon SNS, and Amazon S3.
+
+
+
+Step 3: Installing the Application
+
+In this step, I’ll download the necessary files and install the image processing application on AWS Cloud9 IDE. I’ll also configure a security group to allow communication between the application running on AWS Cloud9 and the user interface in the browser. This step ensures the application is installed correctly and ready to interact with other services in the architecture.
+
+
+Step 3.1: Logging in to the AWS Cloud9 IDE
+
+In this step, I’ll log in to AWS Cloud9 IDE, where I can configure the environment for running the application. This is necessary to access the IDE and configure it properly for the application setup.
+
+Step 3.2: Downloading Files and Installing the Application
+
+I will use commands in the AWS Cloud9 terminal to download, unzip, and install the required files for both the web server and application server. This step prepares the infrastructure by installing the application and its dependencies, making the environment ready for further configurations.
+
+Step 4: Configuring Amazon SQS
+
+In this step, I’ll configure Amazon SQS by creating a queue named "ImageApp." SQS will act as the messaging service for the application, enabling asynchronous communication between components of the application.
+
+Step 5: Configuring Amazon SNS
+
+I will create an SNS topic called "uploadnotification" and configure it to allow S3 to send notifications about new uploads. SNS will help notify different parts of the system about events, in this case, when new images are uploaded to S3.
+
+Step 6: Configuring Amazon S3 Permissions and Event Notifications
+
+I will configure S3 bucket permissions and set up an event notification to send alerts to the SNS topic when an image is uploaded. This is essential for ensuring that the application responds to file uploads by triggering appropriate actions, like notifying SNS.
+
+Step 7: Creating Amazon SNS Subscriptions
+
+In this step, I will configure SNS subscriptions to deliver messages to both the SQS queue and the user’s email. These subscriptions will allow me to ensure that notifications from SNS are received by both the backend (SQS) and the user (email).
+
+Step 8: Configuring Parameters and Starting the Application
+
+I will update configuration files for the browser, web, and application server tiers. Afterward, I will start the web and application servers. This ensures that all configuration settings are correctly applied and that the application can start processing requests.
+
+Step 9: Testing the Application
+
+Finally, I will test the application by interacting with the web interface, uploading images, and verifying that the images are processed and notifications are sent. Testing the application verifies that all components are correctly integrated and working as expected, ensuring the system operates smoothly.
