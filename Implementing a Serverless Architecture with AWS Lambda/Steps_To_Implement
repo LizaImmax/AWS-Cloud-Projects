@@ -1,0 +1,72 @@
+
+Serverless Inventory Tracking System with AWS Lambda and SNS
+
+Step 1: Creating a Lambda Function to Load Data
+
+In this step, I created a Lambda function that processes an inventory file uploaded to Amazon S3. The function reads the file and inserts each record into a DynamoDB table. This Lambda function was written in Python, using the boto3 library to interact with S3 and DynamoDB. The code downloads the file from the S3 bucket and parses the CSV to insert each row into the DynamoDB Inventory table.
+
+
+Step 2: Configuring an Amazon S3 Event
+
+Next, I created an S3 bucket that stores the inventory files uploaded by stores worldwide. I configured the bucket to trigger the Lambda function whenever a new object is created (i.e., when a file is uploaded). This step ensures that the Lambda function is automatically invoked upon file upload, enabling a seamless data processing flow from S3 to DynamoDB.
+
+Step 3: Testing the Loading Process
+
+This step involved testing the system by uploading an inventory file to the S3 bucket. I downloaded sample inventory files and uploaded them to the bucket, which automatically triggered the Lambda function. The function then processed the data and inserted it into the DynamoDB table. To confirm that the data was successfully loaded, I accessed the provided serverless dashboard, which displayed the inventory data retrieved from DynamoDB. Additionally, I verified the data directly within the DynamoDB table to ensure the records were correctly inserted.
+
+
+Step 4: Configuring Notifications with Amazon SNS
+
+To notify inventory management staff when a store runs out of stock, I set up Amazon Simple Notification Service (SNS).
+
+1.	Creating an SNS Topic:
+
+o	Opened the AWS Management Console and searched for SNS.
+o	Created a new SNS topic named NoStock with the standard option selected.
+
+
+2.	Subscribing to the SNS Topic:
+
+o	Created a new subscription for the NoStock topic.
+o	Selected Email as the protocol and entered my email address.
+o	After creating the subscription, I received a confirmation email and clicked the Confirm subscription link.
+With this setup, any message sent to the SNS topic will be forwarded to my email.
+
+
+Step 5: Creating a Lambda Function to Send Notifications
+
+Instead of modifying the existing Load-Inventory Lambda function, I created a separate Lambda function to monitor inventory levels and send notifications when stock runs out.
+
+1.	Creating the Check-Stock Lambda Function:
+
+o	Navigated to the AWS Lambda service and created a new function named Check-Stock with Python 3.8 as the runtime.
+o	Used an existing IAM role Lambda-Check-Stock-Role with permissions to send SNS notifications.
+
+
+2.	Implementing the Stock Check Logic:
+
+o	Replaced the default Lambda function code with a script that:
+	Listens for new records inserted into the Inventory DynamoDB table.
+	Checks if an item’s stock count is zero.
+	Sends a notification to the NoStock SNS topic if an item is out of stock.
+
+3.	Configuring DynamoDB Stream Trigger:
+
+o	Added a DynamoDB trigger to the Lambda function, linking it to the Inventory table.
+o	This ensures that whenever a new inventory record is inserted, the Check-Stock function is triggered.
+
+Step 6: Testing the System
+
+To test the notification system, I uploaded a new inventory file to Amazon S3, triggering the Load-Inventory function, which loaded the data into DynamoDB.
+
+•	If an item had zero stock, the Check-Stock function was triggered.
+•	This function published a message to the NoStock SNS topic.
+•	I received an email notification about the out-of-stock item.
+
+Additional Test:
+
+•	Uploaded multiple inventory files at the same time.
+•	The system processed each file, sending notifications for out-of-stock items accordingly.
+•	Some delay was observed due to DynamoDB stream processing, but all expected notifications were received.
+
+
