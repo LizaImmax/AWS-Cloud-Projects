@@ -1,0 +1,36 @@
+Steps I Took to Automate Sales Reporting for Frank & Martha’s Café ☕🚀
+Step 1: Understanding the Problem
+Frank & Martha were manually analyzing daily sales data—time-consuming and inefficient. They needed an automated serverless solution to generate and email sales reports.
+
+Step 2: Setting Up the Data Extraction Lambda
+✅ Created security groups for the Lambda function and updated RDS security rules to allow access.
+✅ Deployed salesAnalysisReportDataExtractor Lambda function to extract sales data from Amazon RDS.
+✅ Configured private subnets for secure database connectivity.
+✅ Set memory to 128MB and timeout to 30 seconds.
+✅ Uploaded and tested the Python code (debugging included, of course! 😆).
+
+Step 3: Creating the Sales Analysis Report Lambda
+✅ Created salesAnalysisReport Lambda function to generate and email daily sales insights.
+✅ Set Python 3.11 runtime, uploaded the function, and configured the handler.
+✅ Allocated 128MB memory and set timeout to 30 seconds.
+
+Step 4: Setting Up Amazon SNS for Email Notifications
+✅ Created an SNS topic (SalesReportTopic) to handle email alerts.
+✅ Updated the salesAnalysisReport Lambda to use the SNS topic’s ARN as an environment variable.
+
+Step 5: Subscribing to the SNS Topic
+✅ Added email subscribers (Frank & Martha).
+✅ Confirmed the email subscription—because if they don’t confirm, no reports for them! 😆
+
+Step 6: Testing the Sales Analysis Report Lambda
+✅ Created a test event in Lambda (hello-world style).
+✅ Ran the function—checked for email delivery.
+✅ Debugged security group, timeout, and handler issues via CloudWatch Logs.
+
+Step 7: Automating the Report with EventBridge
+✅ Created an EventBridge rule to trigger salesAnalysisReport Lambda every day at 8 PM UTC+3.
+✅ Used an AWS cron expression to schedule the task.
+✅ Assigned mySchedulerRole to handle execution.
+
+Final Result?
+📩 Frank & Martha now receive automated sales reports daily, allowing them to focus on brewing the best coffee instead of crunching numbers! ☕📊
