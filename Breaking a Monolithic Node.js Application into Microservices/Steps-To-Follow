@@ -1,0 +1,50 @@
+Breaking a Monolithic Node.js Application into Microservices
+
+
+Step 1: Preparing the Development Environment
+
+I set up my AWS Cloud9 environment, which is a cloud-based IDE. These files were extracted in my Cloud9 workspace, where I have three main folders:
+ 1-no-container (for the monolithic application), 
+2-containerized-monolith (for the Docker containerized monolith), and 
+3-containerized-microservices (for the microservices version).
+
+
+
+Step 2: Running the Application on a Basic Node.js Server
+
+Here, I deployed the monolithic Node.js message board application to the AWS Cloud9 instance. The application is designed to run directly on a server without containers. I followed these steps to install the required Node.js modules (koa and koa-router), which help create a RESTful API.
+Step 2.1: Installing Node.js Modules
+I installed the required modules using npm install koa and npm install koa-router commands in the terminal. These modules are now stored in the node_modules folder in Cloud9.
+
+
+Step 2.2: Reviewing the Application Code
+I examined the application code in the 1-no-container folder. The main components include:
+•	index.js (handles cluster and worker threads, and routes requests),
+•	server.js (defines the RESTful API methods for users, threads, and posts),
+•	db.json (simulates the database with users, threads, and posts),
+•	package.json (contains metadata and dependencies for the app).
+I reviewed the code, especially the API definitions and how requests are handled by the Node.js server.
+
+
+Step 2.3: Running the Application
+
+I ran the application by executing npm start, which started the Node.js server. I tested the RESTful API by opening a second terminal tab and using curl to make requests, like retrieving users and threads from the message board.
+Finally, I stopped the server using Ctrl+C, confirming that the application responds properly to the API requests. Now, I am ready to containerize the application.
+
+Step 3: Containerizing the monolith for Amazon ECS
+In this step my goal is to deploy the containerized message board application to Amazon ECS, so it can scale and manage traffic effectively. First, I will create an ECS cluster using the ECS console, configuring the necessary resources like EC2 instances, VPC, subnets, and security groups. Once the cluster is set up, I will create a task definition that specifies the application’s container image URI, the required CPU and memory allocations, and the port mappings for the container. This task definition will be used to launch the ECS service with EC2 as the launch type. To ensure high availability and scalability, I’ll configure an Application Load Balancer (ALB) to distribute incoming traffic across ECS instances. After deploying the application, I will verify that it’s running correctly by accessing the ALB’s DNS name to confirm the application is accessible and functional.
+
+Step 4: Deploying the monolith to Amazon ECS
+For this step, I will set up continuous integration and continuous deployment (CI/CD) pipelines to automate the process of building, testing, and deploying the application. I’ll start by configuring AWS CodePipeline and AWS CodeBuild. CodePipeline will automate the build and deployment process by integrating with my source control repository, such as GitHub or AWS CodeCommit. CodeBuild will handle the build process, compiling the code and creating the Docker image, which will be pushed to ECR. Once the image is uploaded, CodePipeline will trigger ECS to deploy the updated container image. I will include test stages in the pipeline to ensure that code changes are validated before deployment. This setup will streamline the deployment process, ensuring that every change is automatically built, tested, and deployed to ECS, reducing manual intervention and enhancing the application’s reliability and scalability.
+
+Step 5: Refactoring the monolith
+
+ I refactor a monolithic message board application into multiple microservices, each of which is containerized and pushed to an Amazon Elastic Container Registry (ECR) repository. I begin by reviewing the refactored microservices application, where the monolith is divided into three services: Users, Threads, and Posts. Each service corresponds to a set of RESTful API endpoints in the original application. The microservices are housed in separate folders, and the only change made is to split the original server.js file into three separate ones, each handling specific API paths related to users, threads, and posts.
+Next, I provision an ECR repository for each microservice. This involves creating private repositories for the Users, Threads, and Posts services via the AWS Management Console. Once the repositories are set up, I proceed to build and push the images for each service. I follow the provided steps for each microservice: navigating to the appropriate folder in AWS Cloud9, building the Docker image, tagging it, and pushing it to the corresponding repository in ECR. After each image is pushed, I verify its successful upload and record the image URI for future use.
+
+
+Step 6: Deploying the containerized microservices
+
+I deploy the containerized microservices to the same ECS cluster used for the containerized monolith application. I use the same Application Load Balancer but configure it to route requests to the different target groups based on the request URI path. I start by creating a task definition for each microservice, specifying the CPU and memory requirements and the image URI from ECR. Each microservice (Users, Threads, Posts) has its own task definition. Finally, I deploy the microservices as ECS services, ensuring they are properly running in the ECS cluster with the desired number of tasks. If any issues arise, I follow troubleshooting steps to resolve them.
+
+
