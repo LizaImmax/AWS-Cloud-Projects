@@ -9,7 +9,7 @@ This project implements an Amazon S3 File Gateway to enable on-premises applicat
 
 
 
-(https://github.com/LizaImmax/AWS-Cloud-Projects/blob/main/Configuring%20Hybrid%20Storage%20and%20Migrating%20Data%20with%20AWS%20Storage%20Gateway%20S3%20File%20Gateway/images/mod16-arc.png)
+![Alt Text](https://github.com/LizaImmax/AWS-Cloud-Projects/blob/main/Configuring%20Hybrid%20Storage%20and%20Migrating%20Data%20with%20AWS%20Storage%20Gateway%20S3%20File%20Gateway/images/mod16-arc.png)
 ---
 
 ## 🚀 Goals
