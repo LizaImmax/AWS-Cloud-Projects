@@ -1,0 +1,24 @@
+Step 1: Deploying the S3 File Gateway Appliance on EC2
+We begin by launching an Amazon S3 File Gateway on an Amazon EC2 instance. This acts as a virtual appliance that bridges on-premises applications with cloud storage by caching frequently accessed data locally and synchronizing it to Amazon S3. The gateway is configured with a cache disk, and we choose the appropriate IAM policy to allow it to interact with our S3 resources securely. This step sets up the foundation for enabling file-based access to S3 using the NFS protocol, making it easier for legacy systems to store and retrieve data.
+________________________________________
+Step 2: Configuring the EC2 Instance for the Gateway
+Next, we configure the EC2 instance for the gateway. This involves selecting the correct AMI (Amazon Machine Image), instance type, and SSH key pair. We also configure network settings (VPC, subnet, and security groups) to ensure that the instance can communicate with both the internet and other AWS services. Security groups are selected to allow specific traffic such as HTTP, HTTPS, NFS, DNS, NTP, and SSH, which are necessary for the gateway’s functionality and remote administration.
+________________________________________
+Step 3: Connecting the Gateway to AWS and Activating It
+Once the EC2 instance is running, we return to the Storage Gateway console, provide the public IPv4 address of the gateway, and activate it. Activation registers the gateway with AWS and enables it to begin managing data movement between the local cache and the cloud. This step finalizes the deployment and connects the appliance to the S3 backend.
+________________________________________
+Step 4: Configuring Gateway Cache and Creating an NFS File Share
+After activation, we configure cache storage using the attached disk, which stores frequently accessed files locally. We then create an NFS file share, linked to an existing S3 bucket in the US East (Ohio) region. This share allows local applications to interact with cloud storage as if it were a local drive. We define S3 settings such as storage class, metadata behavior, and IAM role, enabling secure and optimized data transfer.
+________________________________________
+Step 5: Mounting the NFS File Share and Migrating Data
+With the file share created, we connect to a Linux EC2 instance (representing an on-premises server), mount the NFS share, and copy files to it. This demonstrates how existing data can be migrated seamlessly to S3 via the File Gateway, using standard Linux commands. The files copied here are automatically synchronized to the configured S3 bucket, thanks to the gateway.
+________________________________________
+Step 6: Verifying Data Migration and Replication
+Finally, we verify that the 20 image files migrated to the source S3 bucket in the Ohio region appear correctly. Then, we check the destination S3 bucket in N. Virginia to confirm that replication (set up earlier) is working. This ensures that the architecture supports disaster recovery, high availability, or multi-region access, depending on organizational needs.
+
+
+Conclusion
+This project successfully demonstrates the implementation of an Amazon S3 File Gateway to bridge on-premises infrastructure with cloud-based object storage. Through a step-by-step configuration, we deployed the S3 File Gateway appliance as an EC2 instance, set up an NFS file share, and mounted it on an on-premises Linux server to enable seamless data transfer.
+The setup included provisioning an EC2 instance with appropriate security groups and storage settings, configuring cache disks, and connecting to the gateway using a public IP address. After activating and configuring the gateway, we created a file share backed by an S3 bucket. By mounting the NFS share to a Linux instance, we demonstrated successful migration of local data (20 image files) to the cloud via Amazon S3.
+Finally, we validated that the files were not only stored in the source bucket in the Ohio region but also automatically replicated to the destination bucket in the N. Virginia region using S3 replication policies. This setup exemplifies a hybrid cloud storage model that is scalable, reliable, and secure—ideal for enterprises looking to modernize their infrastructure without abandoning existing systems.
+
